@@ -42,8 +42,6 @@ router.post("/login", async (req, res) => {
 	email = email.trim().toLowerCase();
     password = password.trim();
 
-
-
 	try {
         const currentUser = await User.findOne({ email });
         if (!currentUser) {
@@ -69,6 +67,45 @@ router.post("/login", async (req, res) => {
     }
 }
 );
+
+// register version admin
+router.post("/register-admin", async (req, res) => {
+    let { username, email, password, adminSecret } = req.body;
+
+    // Nettoyer les entrées
+    username = username.trim();
+    email = email.trim().toLowerCase();
+    password = password.trim();
+
+    // Vérification du mot de passe secret d'admin
+    if (adminSecret !== process.env.ADMIN_SECRET) {
+        return res.status(403).json({ error: "Mot de passe administrateur incorrect" });
+    }
+
+    try {
+        // Vérifier si l'email est déjà utilisé
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ error: "Email déjà utilisé" });
+        }
+
+        // Hash du mot de passe
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Créer un nouvel utilisateur avec le rôle admin
+        const newUser = new User({
+            username,
+            email,
+            password: hashedPassword,
+            role: 'admin',  // Le rôle admin est attribué ici
+        });
+
+        await newUser.save();
+        res.status(201).json({ message: "Administrateur inscrit avec succès" });
+    } catch (error) {
+        res.status(500).json({ error: "Erreur lors de l'inscription" });
+    }
+});
 
 module.exports = router;
 

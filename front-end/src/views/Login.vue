@@ -17,9 +17,15 @@ const login = async () => {
         });
 
         localStorage.setItem('token', data.token);
-        router.push('/reservation');
+
+        // Redirection selon le rôle
+        if (data.role === 'admin') {
+            router.push('/admin-dashboard'); // Page admin
+        } else {
+            router.push('/client-home'); // Page client
+        }
     } catch (error) {
-        console.error(error); // Ajoute ça pour voir l'erreur exacte
+        console.error(error);
         errorMsg.value = "Identifiants incorrects.";
     }
 };
@@ -45,7 +51,7 @@ const goToRegister = () => {
       
       <div class="text-center mt-4">
         <p class="text-sm text-pink-600 cursor-pointer" @click="goToRegister">
-          Pas de compte ? Inscris-toi
+          Pas encore de compte ? Inscris-toi
         </p>
       </div>
     </div>

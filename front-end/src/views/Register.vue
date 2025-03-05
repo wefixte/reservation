@@ -30,6 +30,10 @@ const goToLogin = () => {
   router.push('/login');
 };
 
+const goToRegisterAdmin = () => {
+  router.push('/register-admin');
+};
+
 </script>
 
 <template>
@@ -55,6 +59,13 @@ const goToLogin = () => {
           Déjà un compte ? Connexion
         </p>
       </div>
+
+      <div class="text-center mt-4">
+        <p class="text-sm text-pink-600 cursor-pointer" @click="goToRegisterAdmin">
+          Créer un compte administrateur
+        </p>
+      </div>
+
     
     </div>
   </div>

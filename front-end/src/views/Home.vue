@@ -27,17 +27,13 @@ const goToRegisterAdmin = () => {
       <p class="text-lg text-gray-600 mb-8">Miam miam lol</p>
   
       <div class="space-y-4">
-        <!-- Bouton pour l'inscription -->
+
         <button class="w-full bg-pink-600 text-white py-3 rounded-lg hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-400" @click="goToRegister">
           Inscription
         </button>
-  
-        <!-- Bouton pour la connexion -->
         <button class="w-full bg-pink-600 text-white py-3 rounded-lg hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-400" @click="goToLogin">
           Connexion
         </button>
-  
-        <!-- Bouton pour l'inscription Admin -->
         <button class="w-full bg-pink-600 text-white py-3 rounded-lg hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-400" @click="goToRegisterAdmin">
           Inscription Admin
         </button>

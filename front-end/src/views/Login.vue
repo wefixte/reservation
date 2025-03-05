@@ -8,7 +8,6 @@ const email = ref('');
 const password = ref('');
 const errorMsg = ref('');
 
-// Fonction de connexion
 const login = async () => {
     try {
         const { data } = await axios.post('http://localhost:3000/user/login', {

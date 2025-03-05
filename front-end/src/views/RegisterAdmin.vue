@@ -12,7 +12,6 @@ const errorMsg = ref('');
 
 const register = async () => {
   try {
-	// Envoie de la requête d'inscription à l'API
 	const response = await axios.post('http://localhost:3000/user/register-admin', {
 	  username: username.value,
 	  email: email.value,
@@ -20,7 +19,6 @@ const register = async () => {
 	  adminSecret: adminSecret.value,
 	});
 
-	// Redirection si inscription réussie
 	router.push('/login');
   } catch (error) {
 	errorMsg.value = "Erreur lors de l'inscription.";
@@ -43,8 +41,6 @@ const goToLogin = () => {
 		<input v-model="username" type="text" placeholder="Nom" class="w-full p-3 mb-4 border-2 border-pink-300 rounded-lg" />
 		<input v-model="email" type="email" placeholder="Email" class="w-full p-3 mb-4 border-2 border-pink-300 rounded-lg" />
 		<input v-model="password" type="password" placeholder="Mot de passe" class="w-full p-3 mb-4 border-2 border-pink-300 rounded-lg" />
-  
-		<!-- Champ de mot de passe admin -->
 		<input v-model="adminSecret" type="password" placeholder="Mot de passe Admin" class="w-full p-3 mb-4 border-2 border-pink-300 rounded-lg" />
   
 		<button @click="register" class="w-full bg-pink-500 text-white p-3 rounded-lg">S'inscrire</button>

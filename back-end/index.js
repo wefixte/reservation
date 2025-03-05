@@ -30,6 +30,6 @@ database.then(() => {
 });
 
 // Serveur
-app.listen(process.env.PORT, () => {
-    console.log(`🚀 Server lancé sur ${process.env.PORT}`);
+app.listen(process.env.PORT || 5000, () => {
+    console.log(`🚀 Server lancé sur ${process.env.PORT || 5000}`);
 });

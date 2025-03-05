@@ -57,13 +57,14 @@ router.post("/login", async (req, res) => {
 
         const token = jwt.sign(
             { id: currentUser._id, username: currentUser.username, role: currentUser.role },
-            process.env.SECRET,
+            process.env.JWT_SECRET,
             { expiresIn: "1h" } // ptite validité là
         );
 
-        res.cookie("token", token, { httpOnly: true, secure: true, maxAge: 3600000 });
+        //res.cookie("token", token, { httpOnly: true, secure: true, maxAge: 3600000 });
         res.json({ token, role: currentUser.role }); // y a un monde j'ai besoin du rôle
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: "Erreur lors de la connexion" });
     }
 }

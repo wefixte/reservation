@@ -4,10 +4,12 @@ const Reservation = new mongoose.Schema({
 	name: {
 		type: String,
 		required: true,
+		trim: true
 	},
 	email: { 
 		type: String,
-		required: true
+		required: true,
+		trim: true
 	},
 	date: {
 		type: Date,
@@ -15,7 +17,8 @@ const Reservation = new mongoose.Schema({
 	},
 	guests: {
 		type: Number,
-		required: true
+		required: true,
+		min: 1,
 	},
   }, {timestamps: true});
 

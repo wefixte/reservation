@@ -27,15 +27,22 @@ const register = async () => {
 </script>
 
 <template>
-  <div class="flex justify-center items-center h-screen bg-gray-100">
-    <div class="bg-white p-6 rounded-lg shadow-lg w-96">
-      <h2 class="text-2xl font-bold mb-4">Inscription</h2>
-      <input v-model="username" type="text" placeholder="Nom" class="w-full p-2 mb-2 border rounded" />
-      <input v-model="email" type="email" placeholder="Email" class="w-full p-2 mb-2 border rounded" />
-      <input v-model="password" type="password" placeholder="Mot de passe" class="w-full p-2 mb-2 border rounded" />
-      <button @click="register" class="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600">S'inscrire</button>
-      <p v-if="successMsg" class="text-green-500 mt-2">{{ successMsg }}</p>
-      <p v-if="errorMsg" class="text-red-500 mt-2">{{ errorMsg }}</p>
+  <div class="flex justify-center items-center min-h-screen bg-pink-50">
+    <div class="bg-white p-8 rounded-xl shadow-xl w-96 max-w-sm">
+      <h2 class="text-3xl font-bold text-center text-pink-600 mb-6">Inscription</h2>
+      
+      <input v-model="username" type="text" placeholder="Nom" class="w-full p-3 mb-4 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:outline-none" />
+      
+      <input v-model="email" type="email" placeholder="Email" class="w-full p-3 mb-4 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:outline-none" />
+      
+      <input v-model="password" type="password" placeholder="Mot de passe" class="w-full p-3 mb-4 border-2 border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400 focus:outline-none" />
+      
+      <button @click="register" class="w-full bg-pink-500 text-white p-3 rounded-lg hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-400">
+        S'inscrire
+      </button>
+      
+      <p v-if="successMsg" class="text-green-500 text-center mt-4">{{ successMsg }}</p>
+      <p v-if="errorMsg" class="text-red-500 text-center mt-4">{{ errorMsg }}</p>
     </div>
   </div>
 </template>

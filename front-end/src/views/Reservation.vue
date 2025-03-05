@@ -8,7 +8,7 @@ const reservations = ref([]);
 
 const fetchReservations = async () => {
     try {
-        const { data } = await axios.get('http://localhost:5000/reservation', {
+        const { data } = await axios.get('http://localhost:3000/reservation', {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         reservations.value = data.map(r => ({

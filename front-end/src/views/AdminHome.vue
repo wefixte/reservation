@@ -33,7 +33,7 @@
   onMounted(async () => {
 	  const token = localStorage.getItem('token');
 	  try {
-		  const { data } = await axios.get('http://localhost:5000/reservation/reservations', {
+		  const { data } = await axios.get('http://localhost:3000/reservation/reservations', {
 			  headers: { Authorization: `Bearer ${token}` }
 		  });
 		  reservations.value = data;

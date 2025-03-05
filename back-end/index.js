@@ -16,7 +16,7 @@ require('./cronTache.js');
 // Middlewares
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "*", credentials: true }));
 
 // Routes
 app.use('/user', user);

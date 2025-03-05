@@ -24,6 +24,12 @@ const register = async () => {
         errorMsg.value = "Erreur lors de l'inscription.";
     }
 };
+
+// Connexion si jamais t'as déjà un compte
+const goToLogin = () => {
+  router.push('/login');
+};
+
 </script>
 
 <template>
@@ -43,6 +49,13 @@ const register = async () => {
       
       <p v-if="successMsg" class="text-green-500 text-center mt-4">{{ successMsg }}</p>
       <p v-if="errorMsg" class="text-red-500 text-center mt-4">{{ errorMsg }}</p>
+      
+      <div class="text-center mt-4">
+        <p class="text-sm text-pink-600 cursor-pointer" @click="goToLogin">
+          Déjà un compte ? Connexion
+        </p>
+      </div>
+    
     </div>
   </div>
 </template>

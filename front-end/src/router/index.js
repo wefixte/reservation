@@ -40,7 +40,7 @@ const router = createRouter({
 // Middleware pour vérifier que l'utilisateur est un admin
 router.beforeEach((to, from, next) => {
 const token = localStorage.getItem('token');
-const user = token ? JSON.parse(atob(token.split('.')[1])) : null;  // Décoder le JWT pour obtenir l'user
+const user = token ? JSON.parse(atob(token.split('.')[1])) : null;
 
 if (to.matched.some(record => record.meta.requiresAuth)) {
 if (!token) {

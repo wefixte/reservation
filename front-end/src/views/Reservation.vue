@@ -33,12 +33,12 @@ const bookTable = async () => {
 
     try {
         const email = JSON.parse(atob(localStorage.getItem('token').split('.')[1])).email;
-
+        const name = JSON.parse(atob(localStorage.getItem('token').split('.')[1])).username;
         console.log(JSON.parse(atob(localStorage.getItem('token').split('.')[1])));
 
 
         const response = await axios.post('http://localhost:3000/reservation/reservations', 
-            { name: "Client", email, date, timeSlot, guests }, {
+            { name, email, date, timeSlot, guests }, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             });
 

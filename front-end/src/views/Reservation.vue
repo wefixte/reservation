@@ -44,7 +44,6 @@ const bookTable = async () => {
 
         console.log("Réponse du serveur:", response);
         successMsg.value = "Réservation réussie !";
-        //fetchReservations();
     } catch (error) {
         console.error('Erreur de réservation:', error);
         errorMsg.value = error.response?.data?.error || "Erreur de réservation.";

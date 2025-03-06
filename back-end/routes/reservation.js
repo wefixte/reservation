@@ -1,4 +1,3 @@
-// routes/reservation.js
 const express = require('express');
 const authenticate = require('../middleware/auth');
 const Reservation = require('../model/Reservation');
@@ -11,7 +10,6 @@ const TIME_SLOTS = [
     "19:00 - 20:00", "20:00 - 21:00", "21:00 - 22:00"
 ];
 
-// 📌 Route pour réserver
 router.post('/reservations', authenticate(), async (req, res) => {
     try {
         const { name, email, date, timeSlot, guests } = req.body;
@@ -34,7 +32,6 @@ router.post('/reservations', authenticate(), async (req, res) => {
     }
 });
 
-// 📌 Route pour récupérer les réservations
 router.get('/recup-resa', authenticate('admin'), async (req, res) => {
     try {
         const reservations = await Reservation.find().sort({ date: 1 });

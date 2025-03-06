@@ -22,6 +22,11 @@ app.use(cors({ origin: "*", credentials: true }));
 app.use('/user', user);
 app.use('/reservation', reservation);
 
+// Tester si la route est bien chargée
+console.log("Routes disponibles :");
+console.log(app._router.stack.filter(r => r.route).map(r => r.route.path));
+
+
 // MongoDB
 database.then(() => {
     console.log('✅ Connecté à MongoDB');

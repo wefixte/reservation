@@ -17,11 +17,10 @@ const login = async () => {
 
         localStorage.setItem('token', data.token);
 
-        // Redirection selon le rôle
         if (data.role === 'admin') {
-            router.push('/admin-dashboard'); // Page admin
+            router.push('/admin-dashboard');
         } else {
-            router.push('/client-home'); // Page client
+            router.push('/reservation');
         }
     } catch (error) {
         console.error(error);
@@ -29,7 +28,6 @@ const login = async () => {
     }
 };
 
-// Redirection vers la page d'inscription
 const goToRegister = () => {
   router.push('/register');
 };

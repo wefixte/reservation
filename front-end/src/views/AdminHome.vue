@@ -27,7 +27,7 @@
   
   onMounted(async () => {
 	try {
-	  const { data } = await axios.get('http://localhost:3000/reservation/reservations', {
+	  const { data } = await axios.get('http://localhost:3000/reservation/recup-resa', {
 		headers: { Authorization: `Bearer ${token}` }
 	  });
   

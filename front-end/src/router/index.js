@@ -4,6 +4,7 @@ import Login from '@/views/Login.vue';
 import Register from '@/views/Register.vue';
 import RegisterAdmin from '@/views/RegisterAdmin.vue';
 import AdminHome from '@/views/AdminHome.vue'; 
+import Reservation from '@/views/Reservation.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +34,12 @@ const router = createRouter({
     name: 'admin-dashboard',
     component: AdminHome,
     meta: { requiresAuth: true, admin: true }
+  },
+  {
+    path: '/reservation',
+    name: 'reservation',
+    component: Reservation,
+    meta: { requiresAuth: true }
 }
 ]
 });
